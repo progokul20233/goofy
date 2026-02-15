@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GoofyGenX Voting</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            background: #111111;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .navbar {
+            background: #000000;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 4px solid #ffffff;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 32px;
+            letter-spacing: 2px;
+        }
+
+        .developer-tag {
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        .stats {
+            text-align: center;
+            margin: 30px 0;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-bottom: 40px;
+        }
+
+        .card {
+            background: #1a1a1a;
+            border: 3px solid #ffffff;
+            width: 280px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 6px 6px 0px #ffffff;
+            transition: 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 10px 10px 0px #ffffff;
+        }
+
+        .card img {
+            width: 100%;
+            border: 2px solid #ffffff;
+        }
+
+        .card h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 20px;
+            margin: 15px 0;
+        }
+
+        .votes {
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 18px;
+            background: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            font-weight: 900;
+            border: 2px solid #ffffff;
+            box-shadow: 4px 4px 0px #ffffff;
+            transition: 0.2s ease;
+        }
+
+        .btn:hover {
+            background: #000000;
+            color: #ffffff;
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #ffffff;
+        }
+
+        .footer {
+            background: #000000;
+            border-top: 4px solid #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+            font-weight: 700;
+        }
+
+        .footer p {
+            margin: 6px 0;
+        }
+
+        .instagram {
+            margin-top: 8px;
+            font-weight: 600;
+            opacity: 0.85;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <h1>GOOFYGENX VOTINGS</h1>
+    <div class="developer-tag">
+        Developed and maintained by <strong>Gokul</strong>
+    </div>
+</div>
+
+<div class="stats">
+    Unique Visitors: {{ visitors }} |
+    Total Votes: {{ total_votes }}
+</div>
+
+<div class="container">
+    {% for player in players %}
+    <div class="card">
+        <h2>RANK {{ loop.index }} — {{ player[1] }}</h2>
+        <img src="{{ player[2] }}">
+        <div class="votes">Total Votes: {{ player[3] }}</div>
+        <a class="btn" href="/vote/{{ player[0] }}">CAST VOTE</a>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="footer">
+    <p>Created and developed by <strong>Gokul</strong></p>
+    <p>© 2026 GoofyGenChess Votings</p>
+    <div class="instagram">
+        Instagram: @___sweetyboy____
+    </div>
+</div>
+
+</body>
+</html>
